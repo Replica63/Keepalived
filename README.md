@@ -35,8 +35,7 @@
 ![alt text](https://github.com/Replica63/Keepalived/blob/main/img/2.png)
 ![alt text](https://github.com/Replica63/Keepalived/blob/main/img/3.png)
 ![alt text](https://github.com/Replica63/Keepalived/blob/main/img/4.png)
-![Схема](https://github.com/Replica63/Keepalived/blob/main/hsrp_advanced-kopacheskuvv)
-
+![Схема](https://github.com/Replica63/Keepalived/blob/main/img/hsrp_advanced-kopacheskuvv.pkt)
 
 ---
 
