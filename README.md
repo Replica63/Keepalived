@@ -117,5 +117,5 @@ fi
 `Демонстрация keepalived:`
 
 ![alt text](https://github.com/Replica63/Keepalived/blob/main/img/2.3.png)
+![alt text](https://github.com/Replica63/Keepalived/blob/main/img/2.4.png)
 ![alt text](https://github.com/Replica63/Keepalived/blob/main/img/2.5.png)
-![alt text](https://github.com/Replica63/Keepalived/blob/main/img/2.6.png)
