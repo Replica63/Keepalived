@@ -48,3 +48,74 @@
 
 ### Решение 2
 
+`Скрин двух ВМ:`
+![alt text](https://github.com/Replica63/Keepalived/blob/main/img/2.1.png)
+![alt text](https://github.com/Replica63/Keepalived/blob/main/img/2.2.png)
+
+`Конфигурация первого сервера "MASTER"`
+
+```
+ global_defs {
+    enable_script_security
+}
+
+vrrp_script check_script {
+      script "/home/kvv/keepalived/script.sh"
+      interval 3
+}
+
+vrrp_instance www {
+        state MASTER
+        interface enp0s8
+        virtual_router_id 4
+        priority 255
+        advert_int 1
+
+        virtual_ipaddress {
+             192.168.1.250/24
+        }
+}
+
+```
+`Конфигурация второго сервера "BACKUP"`
+
+```
+ global_defs {
+    enable_script_security
+}
+
+vrrp_script check_script {
+      script "/home/kvv/keepalived/script.sh"
+      interval 3
+}
+
+vrrp_instance www {
+        state BACKUP
+        interface enp0s8
+        virtual_router_id 4
+        priority 222
+        advert_int 1
+
+        virtual_ipaddress {
+             192.168.1.250/24
+        }
+}
+
+```
+
+`Скрипт файла script.sh`
+
+```
+#!/bin/bash
+if [[ $(netstat -tuln | grep LISTEN | grep :80) ]] && [[ -f /var/www/html/index.html ]]; then
+        exit 0
+else
+        sudo systemctl stop keepalived
+fi
+```
+
+`Демонстрация keepalived:`
+
+![alt text](https://github.com/Replica63/Keepalived/blob/main/img/2.3.png)
+![alt text](https://github.com/Replica63/Keepalived/blob/main/img/2.5.png)
+![alt text](https://github.com/Replica63/Keepalived/blob/main/img/2.6.png)
